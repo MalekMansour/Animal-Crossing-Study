@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Crossing Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Animal Crossing Study Music</h1>
+        <button id="playButton" class="play-btn">
+            ▶ Play Music
+        </button>
+        <audio id="music" src="music.mp3"></audio>
+    </div>
+    <script>
+        const playButton = document.getElementById('playButton');
+        const music = document.getElementById('music');
+        playButton.addEventListener('click', () => {
+            music.play();
+        });
+    </script>
+</body>
+</html>

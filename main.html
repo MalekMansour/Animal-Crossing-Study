@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +8,19 @@
 <body>
 <div class="container">
 <h1>Animal Crossing Study Music</h1>
-<button id="playButton" class="play-btn">
-▶ Play Music
-</button>
+<button id="playButton" class="play-btn">▶ Play Music</button>
 <audio id="music" src="music.mp3"></audio>
+
+
+<!-- 🎮 NEW FEATURE: Simple Dice Game -->
+<div class="dice-game">
+<h2>Roll the Dice!</h2>
+<p id="diceResult">Click below to roll 🎲</p>
+<button id="rollDice" class="play-btn small">Roll Dice</button>
 </div>
+</div>
+
+
 <script>
 const playButton = document.getElementById('playButton');
 const music = document.getElementById('music');
@@ -31,6 +38,13 @@ playButton.classList.remove('playing');
 music.addEventListener('ended', () => {
 playButton.textContent = '▶ Play Music';
 playButton.classList.remove('playing');
+});
+
+const rollBtn = document.getElementById('rollDice');
+const diceResult = document.getElementById('diceResult');
+rollBtn.addEventListener('click', () => {
+const roll = Math.floor(Math.random() * 6) + 1;
+diceResult.textContent = `You rolled a ${roll}! 🎲`;
 });
 </script>
 </body>

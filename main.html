@@ -12,6 +12,13 @@
 <button id="playButton" class="play-btn">▶ Play Music</button>
 <audio id="music" src="music.mp3"></audio>
 
+<!-- Dice Game -->
+<div class="dice-game">
+    <h2>Roll the Dice!</h2>
+    <p id="diceResult">Click below to roll 🎲</p>
+    <button id="rollDice" class="play-btn small">Roll Dice</button>
+</div>
+
 <!-- Settings Modal -->
 <div id="settingsModal" class="modal hidden">
 <div class="modal-content">
@@ -24,7 +31,6 @@
 </div>
 </div>
 
-
 <script>
 const playButton = document.getElementById('playButton');
 const music = document.getElementById('music');
@@ -32,7 +38,6 @@ const settingsBtn = document.getElementById('settingsBtn');
 const settingsModal = document.getElementById('settingsModal');
 const closeSettings = document.getElementById('closeSettings');
 const bgColorPicker = document.getElementById('bgColor');
-
 
 // 🎵 Music Player
 playButton.addEventListener('click', () => {
@@ -51,19 +56,27 @@ playButton.textContent = '▶ Play Music';
 playButton.classList.remove('playing');
 });
 
-
 // ⚙️ Settings Modal Logic
-settingsBtn.addEventListener('click', () => {
-settingsModal.classList.remove('hidden');
-});
+if (settingsBtn) {
+    settingsBtn.addEventListener('click', () => {
+        settingsModal.classList.remove('hidden');
+    });
+}
 closeSettings.addEventListener('click', () => {
 settingsModal.classList.add('hidden');
 });
 
-
 // 🎨 Change Background Color
 bgColorPicker.addEventListener('input', (e) => {
 document.body.style.background = e.target.value;
+});
+
+// 🎲 Dice Game Script
+const rollBtn = document.getElementById('rollDice');
+const diceResult = document.getElementById('diceResult');
+rollBtn.addEventListener('click', () => {
+    const roll = Math.floor(Math.random() * 6) + 1;
+    diceResult.textContent = `You rolled a ${roll}! 🎲`;
 });
 </script>
 </body>
